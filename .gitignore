@@ -1,3 +1,6 @@
+# exclude images from repo
+images/*
+
 lib-cov
 *.seed
 *.log
