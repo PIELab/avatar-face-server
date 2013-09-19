@@ -4,7 +4,7 @@ avatar-face-server
 This is the code behind the receiving and serving up of face images for avatars to be run on a data server.
 
 # Setup #
-server requires node.js and http-server. An install script might look something like this:
+server requires node.js, supervisor, upstart, and http-server. An install script might look something like this:
 ```bash
 #check for sudo, if not exit
 
@@ -14,10 +14,13 @@ sudo apt-get install node
 #install http-server
 sudo npm install http-server -g
 
-#copy supervisor script to /etc/init/avatar-face-server-supervisor.conf
-cp ...something.../setup/avatar-face-server-supervisor.conf /etc/init/avatar-face-server-supervisor.conf
-```
+#install supervisor 
 
+#install upstart (or assume already installed)
+
+#copy supervisor script to /etc/init/avatar-face-server-supervisor.conf
+sudo cp ...something.../setup/avatar-face-server-supervisor.conf /etc/init/avatar-face-server-supervisor.conf
+```
 
 ## In ##
 Face images from the app are also sent to the server. These are sent using a http POST message and accepted by a node.js server. Currently this is not set up automatically, but can be started using the startserver.sh script. I hope to fix this soon.
